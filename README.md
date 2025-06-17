@@ -33,7 +33,6 @@ Certifique-se de ter o **Python 3** e o **pip** (gerenciador de pacotes do Pytho
     git clone [https://github.com/Weslleis/GateFlows.git)
     cd controle-log
     ```
-    *(Substitua `https://github.com/Weslleis/GateFlows.git` pelo URL real do seu repositório.)*
 
 2.  **Crie e ative um ambiente virtual (recomendado):**
     ```bash
@@ -48,7 +47,7 @@ Certifique-se de ter o **Python 3** e o **pip** (gerenciador de pacotes do Pytho
     ```bash
     pip install -r requirements.txt
     ```
-    *(Se você ainda não tem um `requirements.txt`, crie-o executando `pip freeze > requirements.txt` após instalar todas as dependências como Flask, SQLAlchemy, ReportLab etc.)*
+    *executando `pip freeze > requirements.txt` após instalar todas as dependências como Flask, SQLAlchemy, ReportLab etc.)*
 
 4.  **Crie o banco de dados:**
     O banco de dados `database.db` será criado automaticamente na primeira execução do `app.py` se ele não existir.
