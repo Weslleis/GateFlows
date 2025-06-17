@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Hora Saída</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <h1>Editar Hora Saída</h1>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="hora_saida">Hora Saída:</label>
+                    <input type="time" name="hora_saida" id="hora_saida" value="{{ registro.hora_saida }}" required>
+                </div>
+                <button type="submit" class="editar-salvar-btn">Salvar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

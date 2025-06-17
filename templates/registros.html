@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros Salvos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Registros Salvos</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="form-actions">
+        <form method="get" action="{{ url_for('registros') }}">
+            <div class="form-group">
+                <label for="data_inicio">Data Início:</label>
+                <input type="date" name="data_inicio" value="{{ data_inicio }}">
+            </div>
+
+            <div class="form-group">
+                <label for="data_fim">Data Fim:</label>
+                <input type="date" name="data_fim" value="{{ data_fim }}">
+            </div>
+
+            <button type="submit" class="filtrar-btn">Filtrar</button>
+        </form>
+
+
+        <form method="get" action="{{ url_for('download_pdf') }}">
+            <input type="hidden" name="data_inicio" value="{{ data_inicio }}">
+            <input type="hidden" name="data_fim" value="{{ data_fim }}">
+            <button type="submit" class="gerar-pdf">Gerar PDF</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Hora Entrada</th>
+                <th>Fornecedor</th>
+                <th>Nome Motorista</th>
+                <th>CPF</th>
+                <th>Placa Caminhão</th>
+                <th>Hora Saída</th>
+                <th>Observação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+                <tr>
+                    <td>{{ registro.data }}</td>
+                    <td>{{ registro.hora_entrada }}</td>
+                    <td>{{ registro.fornecedor }}</td>
+                    <td>{{ registro.nome_motorista }}</td>
+                    <td>{{ registro.cpf }}</td>
+                    <td>{{ registro.placa }}</td>
+                    <td>{{ registro.hora_saida }}</td>
+                    <td>{{ registro.observacao }}</td>
+                    <td>
+                        <a href="{{ url_for('editar', id=registro.id) }}" class="editar-btn">Editar Hora Saída</a>
+                        {# REMOVIDO: style="display:inline;" #}
+                        <form action="{{ url_for('excluir', id=registro.id) }}" method="POST">
+                            <button type="submit" class="excluir-btn">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="back-button-container">
+        <a href="{{ url_for('index') }}">
+            <button>⬅ Voltar para o formulário</button>
+        </a>
+    </div>
+
+    <script>
+        // Seleciona todas as mensagens de flash
+        window.onload = function() {
+            const flashMessages = document.querySelectorAll('.flash');
+            
+            flashMessages.forEach(message => {
+                // Define o tempo que a mensagem vai permanecer visível (3 segundos)
+                setTimeout(() => {
+                    message.classList.add('hide');   // Adiciona a classe 'hide' para desaparecer
+                }, 3000);   // 3000ms = 3 segundos
+            });
+        };
+    </script>
+</body>
+</html>
