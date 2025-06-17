@@ -1,0 +1,485 @@
+/* ====================== ESTILO GLOBAL ====================== */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ====================== FORMULÁRIO ====================== */
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ====================== BOTÕES ====================== */
+
+/* Container de botões */
+.botao-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+/* Estilo base para todos os botões e links com aparência de botão */
+.botao-container button,
+.botao-container .registros-button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Botão "Salvar" */
+.botao-container button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+.botao-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Botão "Ver Registros Salvos" */
+.botao-container .registros-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.botao-container .registros-button:hover {
+  background-color: #1e7e34;
+}
+
+/* ====================== MENSAGENS DE ERRO ====================== */
+
+.flash {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.flash.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.danger {
+  background-color: #f44336;
+  color: white;
+}
+
+/* CPF e Placa erros */
+#error-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#cpf-erro,
+#placa-erro {
+  color: red;
+  font-size: 14px;
+  display: none;
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: #f8d7da;
+  margin-bottom: 10px;
+}
+
+/* ====================== TABELA ====================== */
+
+
+
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+}
+
+td:last-child {
+  text-align: right;
+  vertical-align: top;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+
+  border-left: 1px solid #999999; /* deixa igual as outras bordas verticais */
+  border-right: 1px solid #999999;
+  padding: 3px; /* ajuste a gosto */
+}
+
+/* th:last-child {
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+} */
+
+
+/* Bordas verticais mais simples */
+td {
+  border: 1px solid #666;
+}
+
+/* Bordas verticais mais escuras */
+/* td, th {
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+} */
+
+/* Bordas horizontais mais claras */
+/* tr, th, td {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+} */
+
+th,
+td {
+  padding: 3px;
+  text-align: left;
+  white-space: normal;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #c5c5c5;
+  text-align: center;
+}
+
+/* Última coluna da tabela (ações) */
+td:last-child {
+  text-align: right;
+  vertical-align: top;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Formulário de exclusão */
+td form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Botão "Excluir" */
+td .excluir-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+td .excluir-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Links dentro de tabelas */
+td a:not(.registros-button):not(.editar-btn){
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: underline;
+  color: #007bff;
+}
+
+
+
+
+/* ====================== FLASH MESSAGES ====================== */
+
+.flash-message {
+  padding: 10px;
+  margin: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.flash-message.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ====================== FILTRO & PDF ====================== */
+
+.form-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-actions form {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.form-actions input[type="date"] {
+  width: auto;
+  margin-bottom: 0;
+}
+
+.form-actions label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.form-actions button {
+  padding: 8px 15px;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+/* Botão "Gerar PDF" */
+.form-actions .gerar-pdf {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions .gerar-pdf:hover {
+  background-color: #e055a0;
+}
+
+/* Botão "Filtrar" */
+.form-actions .filtrar-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions .filtrar-btn:hover {
+  background-color: #333333;
+}
+
+/* ====================== BOTÃO VOLTAR ====================== */
+
+.back-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-button-container a button {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button-container a button:hover {
+  background-color: #1e7e34;
+}
+
+/* Botão laranja para "Editar Hora Saída" */
+.editar-btn {
+  background-color: #ffa500; /* Laranja #ffa500 */
+  color: rgb(255, 255, 255);
+  padding: 3px 3px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.editar-btn:hover {
+  background-color: #e69500; /* Laranja mais escuro ao passar o mouse */
+}
+
+.editar-salvar-btn {
+  background-color: #ff8c00; /* Laranja escuro */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editar-salvar-btn:hover {
+  background-color: #cc7000; /* Laranja mais escuro no hover */
+}
+
+/* Centralização vertical e horizontal */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* Card elegante */
+.card {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Título do card */
+.card h1 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Formulário no card */
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Campo de hora */
+.card input[type="time"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botão salvar da tela de edição */
+.card button[type="submit"] {
+  background-color: #ffa500; /* laranja */
+  color: white;
+  border: none;
+  padding: 10px 0;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button[type="submit"]:hover {
+  background-color: #e69500;
+}
+
+.card label {
+  text-align: left;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Centraliza apenas Hora Entrada (2ª coluna) e Hora Saída (7ª coluna) */
+table td:nth-child(1),
+table td:nth-child(2),
+table td:nth-child(7),
+table td:nth-child(5),
+table th:nth-child(1),
+table th:nth-child(2),
+table th:nth-child(5),
+table th:nth-child(7) {
+  text-align: center;
+}
+
+/* Intercala as linhas da tabela com dois tons de cinza */
+table tbody tr:nth-child(odd) {
+  background-color: #f5f5f5ff; /* Tom mais claro */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #ffdab9ff; /* Tom mais escuro */
+}
+
+
+
+

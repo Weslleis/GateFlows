@@ -1,0 +1,87 @@
+body {
+  background: #0f2027;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  position: relative;
+  padding: 40px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.user-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-size: 16px;
+}
+
+.user-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+button {
+  background: none;
+  color: #03e9f4;
+  border: 1px solid #03e9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #03e9f4;
+  color: #000;
+}
+
+.alert {
+  color: red;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+body {
+  background: url("../static/img/fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
