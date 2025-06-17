@@ -30,10 +30,10 @@ Certifique-se de ter o **Python 3** e o **pip** (gerenciador de pacotes do Pytho
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/controle-log.git](https://github.com/seu-usuario/controle-log.git)
+    git clone [https://github.com/Weslleis/GateFlows.git)
     cd controle-log
     ```
-    *(Substitua `https://github.com/seu-usuario/controle-log.git` pelo URL real do seu repositório.)*
+    *(Substitua `https://github.com/Weslleis/GateFlows.git` pelo URL real do seu repositório.)*
 
 2.  **Crie e ative um ambiente virtual (recomendado):**
     ```bash
