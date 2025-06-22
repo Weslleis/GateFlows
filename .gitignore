@@ -1,3 +1,6 @@
 #teste.md
 *.md
 .treeignore
+env/
+instance/
+__pycache__
