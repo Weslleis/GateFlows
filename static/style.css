@@ -459,15 +459,17 @@ td a:not(.registros-button):not(.editar-btn){
   margin-bottom: 5px;
 }
 
-/* Centraliza apenas Hora Entrada (2ª coluna) e Hora Saída (7ª coluna) */
-table td:nth-child(1),
-table td:nth-child(2),
-table td:nth-child(7),
-table td:nth-child(5),
-table th:nth-child(1),
-table th:nth-child(2),
-table th:nth-child(5),
-table th:nth-child(7) {
+/* Centraliza as colunas: #, Data, Hora Entrada, CPF e Hora Saída */
+table td:nth-child(1), /* # (numeração da linha) */
+table td:nth-child(2), /* Data */
+table td:nth-child(3), /* Hora Entrada */
+table td:nth-child(8), /* Hora Saída */
+table td:nth-child(6), /* CPF */
+table th:nth-child(1), /* # (numeração da linha) */
+table th:nth-child(2), /* Data */
+table th:nth-child(3), /* Hora Entrada */
+table th:nth-child(6), /* CPF */
+table th:nth-child(8) { /* Hora Saída */
   text-align: center;
 }
 
