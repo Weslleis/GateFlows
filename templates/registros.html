@@ -54,6 +54,7 @@
     <table id="tabela-registros">
         <thead>
             <tr>
+                <th>#</th> <!-- Nova coluna para a numeração -->
                 <th>Data</th>
                 <th>Hora Entrada</th>
                 <th>Fornecedor</th>
@@ -68,6 +69,7 @@
         <tbody>
             {% for registro in registros %}
                 <tr>
+                    <td class="linha-numero"></td> <!-- Coluna para exibir o número da linha -->
                     <td>{{ registro.data }}</td>
                     <td>{{ registro.hora_entrada }}</td>
                     <td>{{ registro.fornecedor }}</td>
@@ -101,6 +103,13 @@
                 setTimeout(() => {
                     message.classList.add('hide');
                 }, 3000);
+            });
+
+            // Preenche a coluna com os números das linhas
+            const tabelaLinhas = document.querySelectorAll('#tabela-registros tbody tr');
+            tabelaLinhas.forEach((linha, index) => {
+                const numeroLinha = linha.querySelector('.linha-numero');
+                numeroLinha.textContent = index + 1; // Adiciona o número da linha
             });
         };
 
