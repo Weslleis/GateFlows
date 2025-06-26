@@ -133,10 +133,11 @@
 
             const linhas = tabela.querySelectorAll('tr');
             linhas.forEach(row => {
-                const fornecedor = row.cells[2].textContent.toLowerCase();
-                const motorista = row.cells[3].textContent.toLowerCase();
-                const cpf = row.cells[4].textContent.toLowerCase();
-                const placa = row.cells[5].textContent.toLowerCase();
+                const fornecedor = row.cells[3].textContent.toLowerCase();
+                const motorista = row.cells[4].textContent.toLowerCase();
+                const cpf = row.cells[5].textContent.toLowerCase();
+                const placa = row.cells[6].textContent.toLowerCase();
+
 
                 const visivel = fornecedor.includes(fornecedorValor) &&
                                 motorista.includes(motoristaValor) &&
